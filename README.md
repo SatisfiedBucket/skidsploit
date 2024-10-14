@@ -1,6 +1,6 @@
 # Setup Guide
-- Extract the zip and run "skidsploit.exe"
-- Paste "SynapseLauncher.exe" from Synapse Z to the "skidsploit.exe" folder if you want to use that
+1. Extract the zip and run "skidsploit.exe"
+2. Paste "SynapseLauncher.exe" from Synapse Z to the "skidsploit.exe" folder if you want to use that (optional)
 
 Remember, this executor is just a joke and I really hope nobody uses this as their actual custom UI
 
