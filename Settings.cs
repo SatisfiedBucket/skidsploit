@@ -17,7 +17,6 @@ namespace skidsploit
         public SynapseZAPI.SynapseZAPI synapseZAPI = new SynapseZAPI.SynapseZAPI();
         public Settings()
         {
-            checkBox1.Checked = Properties.Settings.Default.UseSynapseZ;
             InitializeComponent();
         }
 
@@ -28,11 +27,8 @@ namespace skidsploit
 
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox2.Checked)
-            {
-                checkBox2.Checked = false;
-                MessageBox.Show("no", "skidsploit");
-            }
+            Properties.Settings.Default.UseGambling = checkBox2.Checked;
+            Properties.Settings.Default.Save();
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -42,10 +38,6 @@ namespace skidsploit
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox1.Checked)
-            {
-                MessageBox.Show("This requires you to paste SynapseLauncher.exe from Synapse Z into the directory of this exploit. Please do that and then relaunch to continue.", "skidsploit");
-            }
             Properties.Settings.Default.UseSynapseZ = checkBox1.Checked;
             Properties.Settings.Default.Save();
         }
@@ -58,6 +50,22 @@ namespace skidsploit
         private void button3_Click(object sender, EventArgs e)
         {
             synapseZAPI.ResetHwid(synapseZAPI.FindLauncher(Directory.GetCurrentDirectory()));
+        }
+
+        private void Settings_Load(object sender, EventArgs e)
+        {
+            checkBox1.Checked = Properties.Settings.Default.UseSynapseZ;
+            checkBox2.Checked = Properties.Settings.Default.UseGambling;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("explorer.exe", Path.Combine(Application.StartupPath, "scripts"));
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("next update, sorgy bonus!", "skidsploit");
         }
     }
 }

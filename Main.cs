@@ -20,7 +20,7 @@ namespace skidsploit
         Settings settings = new Settings();
         bool FakeAttach = false;
         string Path1 = Path.Combine(Application.StartupPath, "scripts");
-        string Path2 = Path.Combine(Application.StartupPath, "autoexec");
+        string Path2 = Path.Combine(Application.StartupPath, "bin");
         public SynapseZAPI.SynapseZAPI synapseZAPI = new SynapseZAPI.SynapseZAPI();
 
         MemoryStream userInput = new MemoryStream();
@@ -37,6 +37,10 @@ namespace skidsploit
                 Directory.CreateDirectory(Path2);
             }
             PopulateListBox(ScriptList, Path1);
+            if (Debugger.IsAttached)
+            {
+                Properties.Settings.Default.Reset();
+            }
         }
 
 
@@ -59,14 +63,7 @@ namespace skidsploit
             {
                 if (Properties.Settings.Default.UseSynapseZ)
                 {
-                    if (synapseZAPI.IsInjected(synapseZAPI.FindLauncher(Directory.GetCurrentDirectory())) != null)
-                    {
-                        synapseZAPI.Execute(Directory.GetCurrentDirectory(), script);
-                    }
-                    else
-                    {
-                        MessageBox.Show("you think i was gonna attach for you? nerd.", "skidsploit");
-                    }
+                    synapseZAPI.Execute(Directory.GetCurrentDirectory(), script);
                 }
                 else
                 {
@@ -90,11 +87,27 @@ namespace skidsploit
 
         private void Attach_Click(object sender, EventArgs e)
         {
-            Random random = new Random();
-            int randomNum = random.Next(1, 10);
-            if (randomNum != 1)
+            if (Properties.Settings.Default.UseGambling)
             {
-                MessageBox.Show("you got " + randomNum + "! try again until you land on 1/10 and win.", "skidsploit");
+                Random random = new Random();
+                int randomNum = random.Next(1, 10);
+                if (randomNum != 1)
+                {
+                    MessageBox.Show("you got " + randomNum + "! try again until you land on 1/10 and win.", "skidsploit");
+                }
+                else
+                {
+                    Task.Delay(200);
+                    if (Properties.Settings.Default.UseSynapseZ)
+                    {
+                        synapseZAPI.Inject(Directory.GetCurrentDirectory());
+                    }
+                    else
+                    {
+                        FakeAttach = true;
+                        MessageBox.Show("attached.", "skidsploit");
+                    }
+                }
             }
             else
             {
@@ -106,6 +119,7 @@ namespace skidsploit
                 else
                 {
                     FakeAttach = true;
+                    MessageBox.Show("attached.", "skidsploit");
                 }
             }
         }
@@ -226,6 +240,16 @@ namespace skidsploit
         private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Process[] localByName = Process.GetProcessesByName("RobloxPlayerBeta");
+            foreach (Process p in localByName)
+            {
+                p.Kill();
+                MessageBox.Show("roblox is kil", "skidsploit");
+            }
         }
     }
 }

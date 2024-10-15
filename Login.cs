@@ -22,15 +22,22 @@ namespace skidsploit
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Random random = new Random();
-            int randomNum = random.Next(1, 1000000000);
-            if (randomNum != 1)
+            if (Properties.Settings.Default.UseGambling)
             {
-                MessageBox.Show("you got " + randomNum + "! try again until you land on 1/1000000000 to make a free account.", "unlucky");
+                Random random = new Random();
+                int randomNum = random.Next(1, 1000000000);
+                if (randomNum != 1)
+                {
+                    MessageBox.Show("you got " + randomNum + "! try again until you land on 1/1000000000 to make a free account.", "unlucky");
+                }
+                else
+                {
+                    MessageBox.Show("unable to contact servers, try again later.", "skidsploit");
+                }
             }
             else
             {
-                MessageBox.Show("unable to contact to servers, try again later.", "skidsploit");
+                MessageBox.Show("unable to contact servers, try again later.", "skidsploit");
             }
         }
 
@@ -70,7 +77,7 @@ namespace skidsploit
             }
             else
             {
-                Properties.Settings.Default.SkipLogin = !checkBox1.Checked;
+                Properties.Settings.Default.DontSkipLogin = checkBox1.Checked;
                 Properties.Settings.Default.Save();
                 this.Hide();
                 main.Show();

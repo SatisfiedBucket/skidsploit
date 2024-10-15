@@ -16,15 +16,14 @@ namespace skidsploit
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            if (Properties.Settings.Default.SkipLogin)
-            {
-                Application.Run(new Main());
-            }
-            else
+            if (Properties.Settings.Default.DontSkipLogin)
             {
                 Application.Run(new Login());
             }
-            
+            else
+            {
+                Application.Run(new Main());
+            }
         }
     }
 }

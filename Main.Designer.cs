@@ -43,6 +43,7 @@
             this.ballsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadInEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button1 = new System.Windows.Forms.Button();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,7 +54,7 @@
             this.Execute.Name = "Execute";
             this.Execute.Size = new System.Drawing.Size(72, 27);
             this.Execute.TabIndex = 0;
-            this.Execute.Text = "assassinate";
+            this.Execute.Text = "execute";
             this.Execute.UseVisualStyleBackColor = true;
             this.Execute.Click += new System.EventHandler(this.Execute_Click);
             // 
@@ -62,53 +63,53 @@
             this.Clear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.Clear.Location = new System.Drawing.Point(90, 244);
             this.Clear.Name = "Clear";
-            this.Clear.Size = new System.Drawing.Size(58, 27);
+            this.Clear.Size = new System.Drawing.Size(49, 27);
             this.Clear.TabIndex = 1;
-            this.Clear.Text = "halcyon";
+            this.Clear.Text = "clear";
             this.Clear.UseVisualStyleBackColor = true;
             this.Clear.Click += new System.EventHandler(this.Clear_Click);
             // 
             // SaveFile
             // 
             this.SaveFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.SaveFile.Location = new System.Drawing.Point(154, 244);
+            this.SaveFile.Location = new System.Drawing.Point(145, 244);
             this.SaveFile.Name = "SaveFile";
             this.SaveFile.Size = new System.Drawing.Size(70, 27);
             this.SaveFile.TabIndex = 2;
-            this.SaveFile.Text = "free book";
+            this.SaveFile.Text = "save file";
             this.SaveFile.UseVisualStyleBackColor = true;
             this.SaveFile.Click += new System.EventHandler(this.SaveFile_Click);
             // 
             // ExecuteFile
             // 
             this.ExecuteFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.ExecuteFile.Location = new System.Drawing.Point(230, 244);
+            this.ExecuteFile.Location = new System.Drawing.Point(221, 244);
             this.ExecuteFile.Name = "ExecuteFile";
             this.ExecuteFile.Size = new System.Drawing.Size(98, 27);
             this.ExecuteFile.TabIndex = 3;
-            this.ExecuteFile.Text = "assassinate book";
+            this.ExecuteFile.Text = "execute file";
             this.ExecuteFile.UseVisualStyleBackColor = true;
             this.ExecuteFile.Click += new System.EventHandler(this.ExecuteFile_Click);
             // 
             // LoadFile
             // 
             this.LoadFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.LoadFile.Location = new System.Drawing.Point(334, 244);
+            this.LoadFile.Location = new System.Drawing.Point(325, 244);
             this.LoadFile.Name = "LoadFile";
             this.LoadFile.Size = new System.Drawing.Size(80, 27);
             this.LoadFile.TabIndex = 4;
-            this.LoadFile.Text = "amount book";
+            this.LoadFile.Text = "load file";
             this.LoadFile.UseVisualStyleBackColor = true;
             this.LoadFile.Click += new System.EventHandler(this.LoadFile_Click);
             // 
             // Attach
             // 
             this.Attach.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.Attach.Location = new System.Drawing.Point(420, 244);
+            this.Attach.Location = new System.Drawing.Point(512, 244);
             this.Attach.Name = "Attach";
-            this.Attach.Size = new System.Drawing.Size(36, 27);
+            this.Attach.Size = new System.Drawing.Size(55, 27);
             this.Attach.TabIndex = 5;
-            this.Attach.Text = "add";
+            this.Attach.Text = "attach";
             this.Attach.UseVisualStyleBackColor = true;
             this.Attach.Click += new System.EventHandler(this.Attach_Click);
             // 
@@ -119,7 +120,7 @@
             this.Settings.Name = "Settings";
             this.Settings.Size = new System.Drawing.Size(143, 27);
             this.Settings.TabIndex = 6;
-            this.Settings.Text = "benefit";
+            this.Settings.Text = "settings";
             this.Settings.UseVisualStyleBackColor = true;
             this.Settings.Click += new System.EventHandler(this.Settings_Click);
             // 
@@ -160,35 +161,47 @@
             this.loadInEditorToolStripMenuItem,
             this.refreshToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 92);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(159, 70);
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             this.contextMenuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.contextMenuStrip1_ItemClicked);
             // 
             // ballsToolStripMenuItem
             // 
             this.ballsToolStripMenuItem.Name = "ballsToolStripMenuItem";
-            this.ballsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ballsToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.ballsToolStripMenuItem.Text = "execute";
             this.ballsToolStripMenuItem.Click += new System.EventHandler(this.ballsToolStripMenuItem_Click);
             // 
             // loadInEditorToolStripMenuItem
             // 
             this.loadInEditorToolStripMenuItem.Name = "loadInEditorToolStripMenuItem";
-            this.loadInEditorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.loadInEditorToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.loadInEditorToolStripMenuItem.Text = "load into editor";
             this.loadInEditorToolStripMenuItem.Click += new System.EventHandler(this.loadInEditorToolStripMenuItem_Click);
             // 
             // refreshToolStripMenuItem
             // 
             this.refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
-            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.refreshToolStripMenuItem.Text = "refresh";
+            // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button1.Location = new System.Drawing.Point(411, 244);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(95, 27);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "murder roblox";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(737, 283);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.ScriptList);
             this.Controls.Add(this.Editor);
             this.Controls.Add(this.Settings);
@@ -224,6 +237,7 @@
         private System.Windows.Forms.ToolStripMenuItem ballsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem loadInEditorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem refreshToolStripMenuItem;
+        private System.Windows.Forms.Button button1;
     }
 }
 
